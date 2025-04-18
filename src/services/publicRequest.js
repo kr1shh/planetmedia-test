@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const axiosInstance = axios.create({
+const publicRequest = axios.create({
     baseURL : import.meta.env.VITE_APP_API_URL,
     headers : {
         "x-api-key" : import.meta.env.VITE_APP_API_KEY,
@@ -8,4 +8,4 @@ const axiosInstance = axios.create({
     }
 })
 
-export default axiosInstance
+export default publicRequest
