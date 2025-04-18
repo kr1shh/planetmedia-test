@@ -1,9 +1,19 @@
 import { useEffect } from "react";
+import toast from "react-hot-toast";
 import { NavLink, Outlet, useNavigate } from "react-router-dom";
+
 
 
 const Dashboard = () => {
   const navigate = useNavigate()
+
+  const logOut = ()=>{
+    localStorage.removeItem("token")
+    localStorage.removeItem("user")
+    navigate("/login")
+    toast.success("Logged out successfully")
+  }
+
   useEffect(()=>{
     const token = localStorage.getItem("token")
     if(!token){
@@ -65,6 +75,7 @@ const Dashboard = () => {
           >
             Post Ad
           </NavLink>
+          <button className="text-red-500 hover:text-white hover:bg-red-500 px-3 py-1 border-red-500 border transition-all duration-200 ease-in-out" onClick={logOut}>Log out</button>
         </section>
         <section>
           <Outlet />
