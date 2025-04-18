@@ -1,22 +1,35 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import {
+  RouterProvider,
+  createBrowserRouter,
+  Route,
+  createRoutesFromElements,
+} from "react-router-dom";
 import { AdsDetails, Dashboard, Home, Login, Register } from "./pages";
-
+import { Toaster } from "react-hot-toast";
+import Layout from "./Layout";
 
 const App = () => {
+  const router = createBrowserRouter(
+    createRoutesFromElements(
+      <>
+        <Route path="/" element={<Layout />}>
+          <Route path="" element={<Home />} />
+          <Route path="login" element={<Login />} />
+          <Route path="register" element={<Register />} />
+          <Route path="dashboard" element={<Dashboard />} />
+          <Route path="ads/:id" element={<AdsDetails />} />
+        </Route>
+        <Route path="*" element={<div>Not Found</div>} />
+      </>
+    )
+  );
+
   return (
     <>
-      <Router>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
-          <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/ads/:id" element={<AdsDetails />} />
-          <Route path="*" element={<div>Not Found</div>} />
-        </Routes>
-      </Router>
+      <Toaster />
+      <RouterProvider router={router} />
     </>
-  )
-}
+  );
+};
 
-export default App
+export default App;
