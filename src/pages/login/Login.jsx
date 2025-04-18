@@ -28,10 +28,9 @@ const Login = () => {
         identifier: credentials.username,
         password: credentials.password,
       });
-      let token = localStorage.getItem("token");
-      if (!token) {
-        localStorage.setItem("token", response.data.jwt);
-      }
+      console.log("res : ",response)
+      localStorage.setItem("user",JSON.stringify(response.data.user));
+      localStorage.setItem("token", response.data.jwt);
       toast.success("Logged in successfully");
       setTimeout(()=>{
         navigate("/dashboard")
