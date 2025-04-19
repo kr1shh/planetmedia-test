@@ -1,8 +1,13 @@
+import AdCards from "../../components/AdCards";
+
 
 const Ads = () => {
   return (
-    <div>Ads</div>
-  )
-}
+    <>
+      <h3>Ads</h3>
+      <AdCards/>
+    </>
+  );
+};
 
-export default Ads
+export default Ads;

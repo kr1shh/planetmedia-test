@@ -1,8 +1,5 @@
 import axios from "axios";
 
-const authToken = localStorage.getItem("token");
-console.log("auth : ", authToken);
-
 const authRequest = axios.create({
   baseURL: import.meta.env.VITE_APP_API_URL,
   headers: {

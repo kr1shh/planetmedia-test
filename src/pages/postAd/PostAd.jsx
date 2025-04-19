@@ -19,7 +19,9 @@ const PostAd = () => {
     setSubmitting(true)
     try{
       const response = await authRequest.post("/api/advertisements", values)
-      console.log(response)
+      if(response.status === 200){
+        toast.success("Ad posted successfully")
+      }
       resetForm()
     }catch(err){
       console.log(err)

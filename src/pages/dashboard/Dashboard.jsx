@@ -77,7 +77,7 @@ const Dashboard = () => {
           </NavLink>
           <button className="text-red-500 hover:text-white hover:bg-red-500 px-3 py-1 border-red-500 border transition-all duration-200 ease-in-out" onClick={logOut}>Log out</button>
         </section>
-        <section>
+        <section className="w-full h-[95vh] overflow-y-auto">
           <Outlet />
         </section>
       </main>
