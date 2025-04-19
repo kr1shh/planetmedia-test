@@ -1,10 +1,12 @@
+import PublicAds from "../../components/PublicAds"
 
 const Home = () => {
 
   return (
-    <div>
-      Home
-    </div>
+    <>
+      <h2>Home</h2> 
+      <PublicAds/>
+    </>
   )
 }
 

@@ -9,8 +9,11 @@ const AdCards = () => {
     const fetchAds = async () => {
       try {
         setLoading(true);
+        const userData = JSON.parse(localStorage.getItem('user'));
+        const { id : userId} = userData;
         const response = await publicRequest.get("/api/advertisements");
-        setAds(response.data);
+        const userAds = response.data.filter((ad)=>ad.owner.id === userId )
+        setAds(userAds);
       } catch (err) {
         console.log(err);
       } finally {

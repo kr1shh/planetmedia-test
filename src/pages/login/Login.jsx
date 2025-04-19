@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import publicRequest from "../../services/publicRequest";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router";
@@ -41,6 +41,12 @@ const Login = () => {
       setLoading(false);
     }
   };
+
+  useEffect(()=>{
+    if(localStorage.getItem("token") && localStorage.getItem("user")){
+      navigate("/dashboard")
+    }
+  },[])
 
   return (
     <>
