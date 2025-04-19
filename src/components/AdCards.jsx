@@ -1,9 +1,13 @@
 import { useEffect, useState } from "react";
 import publicRequest from "../services/publicRequest";
+import { useNavigate } from "react-router";
+
 
 const AdCards = () => {
   const [ads, setAds] = useState([]);
   const [loading, setLoading] = useState(false);
+
+  const navigate = useNavigate()
 
   useEffect(() => {
     const fetchAds = async () => {
@@ -50,11 +54,8 @@ const AdCards = () => {
                 <p>{ad.price}</p>
               </div>
               <div>
-                <button className="border border-blue-500 p-2 text-blue-500">
+                <button className="border border-blue-500 p-2 text-blue-500" onClick={()=>{navigate(`/ads/${ad.id}`)}}>
                   View
-                </button>
-                <button className="border border-blue-500 p-2 text-blue-500">
-                  Edit
                 </button>
               </div>
             </div>
