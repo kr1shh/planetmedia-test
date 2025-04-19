@@ -28,7 +28,6 @@ const Login = () => {
         identifier: credentials.username,
         password: credentials.password,
       });
-      console.log("res : ",response)
       localStorage.setItem("user",JSON.stringify(response.data.user));
       localStorage.setItem("token", response.data.jwt);
       toast.success("Logged in successfully");
