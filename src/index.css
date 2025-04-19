@@ -1,5 +1,12 @@
 @import "tailwindcss";
 @theme{
-  --accent-color: #f50963;
-  --primary-color : #212121;
+  --color-accent: #f50963;
+  --color-primary : #212121;
+}
+
+@layer utilities {
+  .text-stroke {
+    -webkit-text-stroke: 2px #f1f1f1;
+    color: transparent;
+  }
 }

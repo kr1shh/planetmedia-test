@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import publicRequest from "../services/publicRequest";
 import { useNavigate } from "react-router";
+import authRequest from "../services/authRequest";
+import toast from "react-hot-toast";
 
 
 const AdCards = () => {
@@ -9,21 +11,35 @@ const AdCards = () => {
 
   const navigate = useNavigate()
 
+  const deleteAd = async(id) => {
+    try{
+      setLoading(true)
+      await authRequest.delete(`/api/advertisements/${id}`)
+      toast.success("Ad deleted successfully")
+      fetchAds()
+    }catch(err){
+      console.error(err)
+      toast.error("Something went wrong!")
+    }finally{
+      setLoading(false)
+    }
+  }
+
+  const fetchAds = async () => {
+    try {
+      setLoading(true);
+      const userData = JSON.parse(localStorage.getItem('user'));
+      const { id : userId} = userData;
+      const response = await publicRequest.get("/api/advertisements");
+      const userAds = response.data.filter((ad)=>ad.owner.id === userId )
+      setAds(userAds);
+    } catch (err) {
+      console.log(err);
+    } finally {
+      setLoading(false);
+    }
+  };
   useEffect(() => {
-    const fetchAds = async () => {
-      try {
-        setLoading(true);
-        const userData = JSON.parse(localStorage.getItem('user'));
-        const { id : userId} = userData;
-        const response = await publicRequest.get("/api/advertisements");
-        const userAds = response.data.filter((ad)=>ad.owner.id === userId )
-        setAds(userAds);
-      } catch (err) {
-        console.log(err);
-      } finally {
-        setLoading(false);
-      }
-    };
     fetchAds();
   }, []);
 
@@ -56,6 +72,9 @@ const AdCards = () => {
               <div>
                 <button className="border border-blue-500 p-2 text-blue-500" onClick={()=>{navigate(`/ads/${ad.id}`)}}>
                   View
+                </button>
+                <button className="border border-red-500 p-2 text-red-500" onClick={()=>{deleteAd(ad.id)}}>
+                  Delete
                 </button>
               </div>
             </div>
