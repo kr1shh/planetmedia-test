@@ -1,8 +1,11 @@
 import { useEffect, useState } from "react";
 import AdCards from "../../components/AdCards";
+import { useNavigate } from "react-router";
+
 
 const MyAccount = () => {
   const [user, setUser] = useState({});
+  const navigate = useNavigate()
 
   useEffect(() => {
     const userData = localStorage.getItem("user");
@@ -40,7 +43,7 @@ const MyAccount = () => {
                 <p>{formatDate(user.createdAt)}</p>
               </div>
             </div>
-            <button className="border border-blue-500 p-2 text-blue-500">Edit</button>
+            <button className="cursor-pointer border border-blue-500 p-2 text-blue-500" onClick={()=>navigate("/dashboard/profile")} title="Edit profile">Edit</button>
           </div>
           <div className="flex items-start gap-2 w-full p-3">
             <div>
