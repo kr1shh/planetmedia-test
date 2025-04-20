@@ -18,6 +18,7 @@ const Dashboard = () => {
     const token = localStorage.getItem("token")
     if(!token){
       navigate("/login")
+      toast.error("Please login to access this page")
     }else{
       navigate("/dashboard/my-account")
     }
