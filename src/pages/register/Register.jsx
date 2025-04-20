@@ -35,8 +35,8 @@ const Register = () => {
           "email" : user.email,
           "password" : user.password
         })
-        
         localStorage.setItem("token",response.data.jwt)
+        localStorage.setItem("user", JSON.stringify(response.data.user))
         toast.success("Registered successfully")
         setTimeout(()=>{
           navigate("/dashboard")

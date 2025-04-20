@@ -32,7 +32,7 @@ const Profile = () => {
 
   return (
     <>
-      <form onSubmit={handleSubmit} className="w-full h-full gap-6 flex items-center justify-center bg-white flex-col">
+      <form onSubmit={handleSubmit} className="w-full h-full gap-6 flex items-center justify-center bg-white flex-col py-16 rounded-2xl">
         <div className="flex flex-col gap-2 w-[70%]">
           <label htmlFor="firstName" className="text-base text-gray-600">First name <span className="text-accent">*</span></label>
           <input type="text" id="firstName" name="firstName" className="border border-gray-400 rounded-xl p-3 focus:border-accent focus-visible:border-accent focus:outline-0 focus-visible:outline-0" placeholder="Type here." required onChange={handleChange} value={values.firstName}/>
