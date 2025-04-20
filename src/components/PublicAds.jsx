@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import publicRequest from "../services/publicRequest";
 import { useNavigate } from "react-router";
 import { Eye, Grid2x2, List, Loader } from "lucide-react";
+import toast from "react-hot-toast";
 
 
 const PublicAds = () => {
@@ -17,7 +18,7 @@ const PublicAds = () => {
         const response = await publicRequest.get("/api/advertisements");
         setAds(response.data);
       } catch (err) {
-        console.log(err);
+        toast.error(err.response.data.error.message);
       } finally {
         setLoading(false);
       }

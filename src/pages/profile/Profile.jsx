@@ -19,12 +19,11 @@ const Profile = () => {
     try{
       setSubmitting(true)
       const response = await authRequest.put("/api/profile",values)
-      console.log(response);
       resetForm()
       toast.success("Profile updated successfully")
       localStorage.setItem("user",JSON.stringify(response.data))
     }catch(err){
-      console.log(err)
+      toast.error(err.response.data.error.message)
     }finally{
       setSubmitting(false)
     }

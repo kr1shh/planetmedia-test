@@ -37,7 +37,6 @@ const Login = () => {
       }, 700);
     } catch (err) {
       toast.error(err.response.data.error.message);
-      console.log(err);
     } finally {
       setLoading(false);
     }

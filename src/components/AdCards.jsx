@@ -18,7 +18,6 @@ const AdCards = () => {
       toast.success("Ad deleted successfully");
       fetchAds();
     } catch (err) {
-      console.error(err);
       toast.error("Something went wrong!");
     } finally {
       setLoading(false);
@@ -30,11 +29,11 @@ const AdCards = () => {
       setLoading(true);
       const userData = JSON.parse(localStorage.getItem("user"));
       const { id: userId } = userData;
-      const response = await publicRequest.get("/api/advertisements");
+      const response = await publicRequest.get("/api/advertisementss");
       const userAds = response.data.filter((ad) => ad.owner.id === userId);
       setAds(userAds);
     } catch (err) {
-      console.log(err);
+      toast.error(err.response.data.error.message);
     } finally {
       setLoading(false);
     }

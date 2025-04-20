@@ -24,7 +24,6 @@ const PostAd = () => {
       }
       resetForm()
     }catch(err){
-      console.log(err)
       if(err.status === 401){
         toast.error("Please login")
         localStorage.removeItem("user")
