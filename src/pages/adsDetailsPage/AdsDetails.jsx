@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router";
 import publicRequest from "../../services/publicRequest";
 import toast from "react-hot-toast";
+import LoaderState from "../../components/LoaderState";
 
 const AdsDetails = () => {
   const { id } = useParams();
@@ -30,19 +31,19 @@ const AdsDetails = () => {
   return (
     <>
       {loading ? (
-        <h1>Loading...</h1>
+        <LoaderState/>
       ) : (
         <main className="container flex gap-3 mx-auto">
-          <div className="w-full">
-            <div>
+          <div className="w-full bg-white rounded-2xl border border-gray-300 my-20 p-6">
+            <div className="flex flex-col gap-4 mb-6">
               <div className="w-full flex justify-between">
-                <h3>{adDetails.title}</h3>
+                <h3 className="text-2xl font-bold">{adDetails.title}</h3>
                 <div>
-                  <p>Price :</p>
-                  <h2>₹{adDetails.price}</h2>
+                  <p className="text-base text-gray-600">Price :</p>
+                  <h2 className="text-2xl font-bold text-accent">₹{adDetails.price}</h2>
                 </div>
               </div>
-              <div className="w-full h-[300px]">
+              <div className="w-full h-[300px] overflow-hidden rounded-2xl">
                 <img
                   src={adDetails.image}
                   alt="test"
@@ -54,8 +55,8 @@ const AdsDetails = () => {
               </div>
             </div>
             <div>
-              <h3>Overview</h3>
-              <p>{adDetails.description}</p>
+              <h3 className="text-xl font-bold">Overview</h3>
+              <p className="text-sm text-gray-600">{adDetails.description}</p>
             </div>
           </div>
         </main>
