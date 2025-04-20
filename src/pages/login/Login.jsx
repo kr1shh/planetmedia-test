@@ -60,9 +60,14 @@ const Login = () => {
             </p>
             <h1 className="text-xl font-medium">Log in to your account</h1>
           </div>
-          <form onSubmit={handleSubmit} className="w-full flex flex-col items-center justify-center">
+          <form
+            onSubmit={handleSubmit}
+            className="w-full flex flex-col items-center justify-center"
+          >
             <div className="mt-3 flex flex-col gap-2 w-[70%]">
-              <label htmlFor="email" className="text-base text-gray-600">Email <span className="text-accent">*</span></label>
+              <label htmlFor="email" className="text-base text-gray-600">
+                Email <span className="text-accent">*</span>
+              </label>
               <input
                 className="border border-gray-400 rounded-xl p-3 focus:border-accent focus-visible:border-accent focus:outline-0 focus-visible:outline-0"
                 type="email"
@@ -73,7 +78,9 @@ const Login = () => {
               />
             </div>
             <div className="mt-3 flex flex-col gap-2 w-[70%]">
-              <label htmlFor="password" className="text-base text-gray-600">Password <span className="text-accent">*</span></label>
+              <label htmlFor="password" className="text-base text-gray-600">
+                Password <span className="text-accent">*</span>
+              </label>
               <input
                 className="border border-gray-400 rounded-xl p-3 focus:border-accent focus-visible:border-accent focus:outline-0 focus-visible:outline-0"
                 type="password"

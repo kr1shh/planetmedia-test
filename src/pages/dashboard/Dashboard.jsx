@@ -2,27 +2,25 @@ import { useEffect } from "react";
 import toast from "react-hot-toast";
 import { NavLink, Outlet, useNavigate } from "react-router-dom";
 
-
-
 const Dashboard = () => {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
-  const logOut = ()=>{
-    localStorage.removeItem("token")
-    localStorage.removeItem("user")
-    navigate("/login")
-    toast.success("Logged out successfully")
-  }
+  const logOut = () => {
+    localStorage.removeItem("token");
+    localStorage.removeItem("user");
+    navigate("/login");
+    toast.success("Logged out successfully");
+  };
 
-  useEffect(()=>{
-    const token = localStorage.getItem("token")
-    if(!token){
-      navigate("/login")
-      toast.error("Please login to access this page")
-    }else{
-      navigate("/dashboard/my-account")
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (!token) {
+      navigate("/login");
+      toast.error("Please login to access this page");
+    } else {
+      navigate("/dashboard/my-account");
     }
-  },[navigate])
+  }, [navigate]);
 
   return (
     <>
@@ -76,7 +74,12 @@ const Dashboard = () => {
           >
             Post Ad
           </NavLink>
-          <button className="text-red-500 hover:text-white hover:bg-red-500 px-4 py-3 border-red-500 border transition-all duration-200 ease-in-out rounded-[50px]" onClick={logOut}>Log out</button>
+          <button
+            className="text-red-500 hover:text-white hover:bg-red-500 px-4 py-3 border-red-500 border transition-all duration-200 ease-in-out rounded-[50px]"
+            onClick={logOut}
+          >
+            Log out
+          </button>
         </section>
         <section className="w-full min-h-[83vh] overflow-y-auto">
           <Outlet />

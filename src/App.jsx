@@ -4,7 +4,17 @@ import {
   Route,
   createRoutesFromElements,
 } from "react-router-dom";
-import { AdsDetails, Dashboard, Home, Login, Register, MyAccount, Profile, PostAd, Ads } from "./pages";
+import {
+  AdsDetails,
+  Dashboard,
+  Home,
+  Login,
+  Register,
+  MyAccount,
+  Profile,
+  PostAd,
+  Ads,
+} from "./pages";
 import { Toaster } from "react-hot-toast";
 import Layout from "./Layout";
 

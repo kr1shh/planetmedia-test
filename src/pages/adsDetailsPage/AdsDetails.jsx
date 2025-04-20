@@ -18,14 +18,14 @@ const AdsDetails = () => {
       } catch (err) {
         toast.error(err.response.data.error.message);
         setTimeout(() => {
-          navigate("/")
-        },600)
+          navigate("/");
+        }, 600);
       } finally {
         setLoading(false);
       }
     };
     fetchAd();
-  }, [id]);
+  }, [id,navigate]);
 
   return (
     <>

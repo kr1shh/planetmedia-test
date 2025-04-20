@@ -1,10 +1,9 @@
 import AdCards from "../../components/AdCards";
 
-
 const Ads = () => {
   return (
     <>
-      <AdCards/>
+      <AdCards />
     </>
   );
 };

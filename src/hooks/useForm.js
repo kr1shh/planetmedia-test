@@ -1,31 +1,31 @@
 import { useState } from "react";
 
-const useForm = (initialState)=>{
-    const [ values, setValues ] = useState(initialState)
-    const [ isSubmitting, setIsSubmitting ] = useState(false)
+const useForm = (initialState) => {
+  const [values, setValues] = useState(initialState);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-    const handleChange = (e)=>{
-        setValues({
-            ...values,
-            [e.target.name]: e.target.value
-        })
-    }
+  const handleChange = (e) => {
+    setValues({
+      ...values,
+      [e.target.name]: e.target.value,
+    });
+  };
 
-    const setSubmitting = (isSubmitting) => {
-        setIsSubmitting(isSubmitting);
-      };
+  const setSubmitting = (isSubmitting) => {
+    setIsSubmitting(isSubmitting);
+  };
 
-    const resetForm = () => {
-        setValues(initialState);
-    };
+  const resetForm = () => {
+    setValues(initialState);
+  };
 
-    return {
-        values,
-        handleChange,
-        isSubmitting,
-        setSubmitting,
-        resetForm
-    }
-}
+  return {
+    values,
+    handleChange,
+    isSubmitting,
+    setSubmitting,
+    resetForm,
+  };
+};
 
-export default useForm
+export default useForm;

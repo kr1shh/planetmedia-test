@@ -14,9 +14,9 @@ const Footer = () => {
             </p>
           </div>
           <div className="flex gap-5 text-white/20">
-            <Facebook className="w-5"/>
-            <Twitter className="w-5"/>
-            <Youtube className="w-5"/>
+            <Facebook className="w-5" />
+            <Twitter className="w-5" />
+            <Youtube className="w-5" />
           </div>
         </div>
       </footer>

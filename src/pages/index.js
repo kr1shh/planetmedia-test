@@ -8,4 +8,14 @@ import Profile from "./profile/Profile";
 import PostAd from "./postAd/PostAd";
 import Ads from "./ads/Ads";
 
-export { AdsDetails, Dashboard, Home, Login, Register, MyAccount, Profile, PostAd, Ads };
+export {
+  AdsDetails,
+  Dashboard,
+  Home,
+  Login,
+  Register,
+  MyAccount,
+  Profile,
+  PostAd,
+  Ads,
+};
