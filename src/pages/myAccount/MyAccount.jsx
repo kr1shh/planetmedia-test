@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import AdCards from "../../components/AdCards";
 import { useNavigate } from "react-router";
+import { AtSign, MapPin, Phone } from "lucide-react";
 
 
 const MyAccount = () => {
@@ -26,12 +27,11 @@ const MyAccount = () => {
 
   return (
     <>
-      <h1>My Account</h1>
       <div className="max-h-[95vh]">
-        <div className="flex flex-col gap-2 w-full border p-3 border-gray-300 rounded-2xl">
+        <div className="flex flex-col gap-2 w-full p-3 bg-white rounded-2xl">
           <div className="flex items-center gap-2 w-full justify-between border-b border-gray-300 p-3">
-            <div className="flex items-center gap-2">
-              <div className="w-[100px] h-[100px] overflow-hidden rounded-full">
+            <div className="flex items-center gap-4">
+              <div className="w-[80px] h-[80px] overflow-hidden rounded-full">
                 <img
                   src="https://avatar.iran.liara.run/public"
                   alt="test"
@@ -39,25 +39,25 @@ const MyAccount = () => {
                 />
               </div>
               <div>
-                <h3>{user.username || "Name not available"}</h3>
-                <p>{formatDate(user.createdAt)}</p>
+                <h3 className="font-medium text-lg">{user.username || "Name not available"}</h3>
+                <p className="font-light text-sm text-gray-600">{formatDate(user.createdAt)}</p>
               </div>
             </div>
-            <button className="cursor-pointer border border-blue-500 p-2 text-blue-500" onClick={()=>navigate("/dashboard/profile")} title="Edit profile">Edit</button>
+            <button className="cursor-pointer border border-gray-400 text-primary px-4 py-3 rounded-[50px] hover:bg-primary hover:text-white transition-all duration-300 ease-in-out" onClick={()=>navigate("/dashboard/profile")} title="Edit profile">Edit profile</button>
           </div>
           <div className="flex items-start gap-2 w-full p-3">
             <div>
-              <p>{user.location || "Location not set"}</p>
+              <p className="flex items-center justify-center text-sm text-gray-500"><MapPin className="w-4 h-4"/>&nbsp;{user.location || "Location not set"}</p>
             </div>
             <div>
-              <p>{user.email || "Email not available"}</p>
+              <p className="flex items-center justify-center text-sm text-gray-500"><AtSign className="w-4 h-4"/>&nbsp;{user.email || "Email not available"}</p>
             </div>
             <div>
-              <p>{user.phone || "Phone not set"}</p>
+              <p className="flex items-center justify-center text-sm text-gray-500"><Phone className="w-4 h-4"/>&nbsp;{user.phone || "Phone not set"}</p>
             </div>
           </div>
         </div>
-        <div className="w-full h-full overflow-y-auto mt-3">
+        <div className="w-full h-full overflow-y-auto mt-5">
           <AdCards/>
         </div>
       </div>

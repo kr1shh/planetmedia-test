@@ -52,7 +52,7 @@ const AdCards = () => {
           ads.map((ad) => (
             <div
               key={ad.id}
-              className="w-full flex items-start justify-center gap-3"
+              className="w-full flex items-start justify-center gap-3 bg-white rounded-2xl p-6"
             >
               <div className="w-[100px] h-[100px] overflow-hidden rounded-md">
                 <img
@@ -65,16 +65,16 @@ const AdCards = () => {
                 />
               </div>
               <div className="grow">
-                <h1>{ad.title}</h1>
-                <p>{ad.description}</p>
-                <p>{ad.price}</p>
+                <h1 className="text-xl font-semibold">{ad.title}</h1>
+                <p className="text-sm text-gray-600">{ad.description}</p>
+                <p className="mt-3 text-xl font-medium">₹{ad.price}</p>
               </div>
-              <div>
-                <button className="border border-blue-500 p-2 text-blue-500" onClick={()=>{navigate(`/ads/${ad.id}`)}}>
-                  View
-                </button>
-                <button className="border border-red-500 p-2 text-red-500" onClick={()=>{deleteAd(ad.id)}}>
+              <div className="flex gap-2">
+                <button className="border border-gray-500/20 px-4 py-3 rounded-[50px] text-primary cursor-pointer" onClick={()=>{deleteAd(ad.id)}}>
                   Delete
+                </button>
+                <button className="border border-accent px-4 py-3 rounded-[50px] text-white bg-accent cursor-pointer" onClick={()=>{navigate(`/ads/${ad.id}`)}}>
+                  View
                 </button>
               </div>
             </div>
