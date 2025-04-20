@@ -29,7 +29,7 @@ const AdCards = () => {
       setLoading(true);
       const userData = JSON.parse(localStorage.getItem("user"));
       const { id: userId } = userData;
-      const response = await publicRequest.get("/api/advertisementss");
+      const response = await publicRequest.get("/api/advertisements");
       const userAds = response.data.filter((ad) => ad.owner.id === userId);
       setAds(userAds);
     } catch (err) {
