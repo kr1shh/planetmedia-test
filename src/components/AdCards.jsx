@@ -3,6 +3,7 @@ import publicRequest from "../services/publicRequest";
 import { useNavigate } from "react-router";
 import authRequest from "../services/authRequest";
 import toast from "react-hot-toast";
+import LoaderState from "./LoaderState";
 
 
 const AdCards = () => {
@@ -47,7 +48,7 @@ const AdCards = () => {
     <>
       <div className="flex flex-col gap-4">
         {loading ? (
-          <h1>Loading...</h1>
+          <LoaderState/>
         ) : (
           ads.map((ad) => (
             <div

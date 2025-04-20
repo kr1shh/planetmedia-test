@@ -32,32 +32,32 @@ const Profile = () => {
 
   return (
     <>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor="firstName">First name</label>
-          <input type="text" id="firstName" name="firstName" className="border" required onChange={handleChange} value={values.firstName}/>
+      <form onSubmit={handleSubmit} className="w-full h-full gap-6 flex items-center justify-center bg-white flex-col">
+        <div className="flex flex-col gap-2 w-[70%]">
+          <label htmlFor="firstName" className="text-base text-gray-600">First name <span className="text-accent">*</span></label>
+          <input type="text" id="firstName" name="firstName" className="border border-gray-400 rounded-xl p-3 focus:border-accent focus-visible:border-accent focus:outline-0 focus-visible:outline-0" placeholder="Type here." required onChange={handleChange} value={values.firstName}/>
         </div>
-        <div>
-          <label htmlFor="lastName">Last name</label>
-          <input type="text" id="lastName" name="lastName" className="border" required onChange={handleChange} value={values.lastName}/>
+        <div className="flex flex-col gap-2 w-[70%]">
+          <label htmlFor="lastName" className="text-base text-gray-600">Last name <span className="text-accent">*</span></label>
+          <input type="text" id="lastName" name="lastName" className="border border-gray-400 rounded-xl p-3 focus:border-accent focus-visible:border-accent focus:outline-0 focus-visible:outline-0" placeholder="Type here." required onChange={handleChange} value={values.lastName}/>
         </div>
-        <div>
-          <label htmlFor="email">Email</label>
-          <input type="email" id="email" name="email" className="border" required onChange={handleChange} value={values.email}/>
+        <div className="flex flex-col gap-2 w-[70%]">
+          <label htmlFor="email" className="text-base text-gray-600">Email <span className="text-accent">*</span></label>
+          <input type="email" id="email" name="email" className="border border-gray-400 rounded-xl p-3 focus:border-accent focus-visible:border-accent focus:outline-0 focus-visible:outline-0" placeholder="Type here." required onChange={handleChange} value={values.email}/>
         </div>
-        <div>
-          <label htmlFor="username">Username</label>
-          <input type="text" id="username" name="username" className="border" required onChange={handleChange} value={values.username}/>
+        <div className="flex flex-col gap-2 w-[70%]">
+          <label htmlFor="username" className="text-base text-gray-600">Username <span className="text-accent">*</span></label>
+          <input type="text" id="username" name="username" className="border border-gray-400 rounded-xl p-3 focus:border-accent focus-visible:border-accent focus:outline-0 focus-visible:outline-0" placeholder="Type here." required onChange={handleChange} value={values.username}/>
         </div>
-        <div>
-          <label htmlFor="location">Location</label>
-          <input type="text" id="location" name="location" className="border" required onChange={handleChange} value={values.location}/>
+        <div className="flex flex-col gap-2 w-[70%]">
+          <label htmlFor="location" className="text-base text-gray-600">Location <span className="text-accent">*</span></label>
+          <input type="text" id="location" name="location" className="border border-gray-400 rounded-xl p-3 focus:border-accent focus-visible:border-accent focus:outline-0 focus-visible:outline-0" placeholder="Type here." required onChange={handleChange} value={values.location}/>
         </div>
-        <div>
-          <label htmlFor="phone">Contact number</label>
-          <input type="number" id="phone" name="phone" className="border" required onChange={handleChange} value={values.phone}/>
+        <div className="flex flex-col gap-2 w-[70%]">
+          <label htmlFor="phone" className="text-base text-gray-600">Contact number <span className="text-accent">*</span></label>
+          <input type="number" id="phone" name="phone" className="border border-gray-400 rounded-xl p-3 focus:border-accent focus-visible:border-accent focus:outline-0 focus-visible:outline-0" placeholder="Type here." required onChange={handleChange} value={values.phone}/>
         </div>
-        <button type="submit">{ isSubmitting ? "Updating..." : "Save" }</button>
+        <button type="submit" className="bg-accent py-3 rounded-[50px] w-[70%] text-white mt-3">{ isSubmitting ? "Updating..." : "Save" }</button>
       </form>
     </>
   )

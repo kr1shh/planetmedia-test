@@ -42,24 +42,24 @@ const PostAd = () => {
 
   return (
     <>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor="title">Ad title</label>
-          <input type="text" id="title" name="title" className="border" required  onChange={handleChange} value={values.title}/>
+      <form onSubmit={handleSubmit} className="w-full h-full gap-6 flex items-center justify-center bg-white flex-col p-4 rounded-lg">
+        <div className="flex flex-col gap-2 w-[70%]">
+          <label htmlFor="title" className="text-base text-gray-600">Ad title <span className="text-accent">*</span></label>
+          <input type="text" id="title" name="title" className="border border-gray-400 rounded-xl p-3 focus:border-accent focus-visible:border-accent focus:outline-0 focus-visible:outline-0" placeholder="Type here." required  onChange={handleChange} value={values.title}/>
         </div>
-        <div>
-          <label htmlFor="price">Price</label>
-          <input type="text" id="price" name="price" className="border" required  onChange={handleChange} value={values.price}/>
+        <div className="flex flex-col gap-2 w-[70%]">
+          <label htmlFor="price" className="text-base text-gray-600">Price <span className="text-accent">*</span></label>
+          <input type="text" id="price" name="price" className="border border-gray-400 rounded-xl p-3 focus:border-accent focus-visible:border-accent focus:outline-0 focus-visible:outline-0" placeholder="Type here." required  onChange={handleChange} value={values.price}/>
         </div>
-        <div>
-          <label htmlFor="description">Description</label>
-          <textarea name="description" id="description" className="border" required onChange={handleChange} value={values.description}></textarea>
+        <div className="flex flex-col gap-2 w-[70%]">
+          <label htmlFor="description" className="text-base text-gray-600">Description <span className="text-accent">*</span></label>
+          <textarea name="description" id="description" className="h-32 border border-gray-400 rounded-xl p-3 focus:border-accent focus-visible:border-accent focus:outline-0 focus-visible:outline-0" placeholder="Type here." required onChange={handleChange} value={values.description}></textarea>
         </div>
-        <div>
-          <label htmlFor="image">Photo</label>
-          <input type="text" id="image" name="image" className="border" required  onChange={handleChange} value={values.image}/>
+        <div className="flex flex-col gap-2 w-[70%]">
+          <label htmlFor="image" className="text-base text-gray-600">Photo <span className="text-accent">*</span></label>
+          <input type="text" id="image" name="image" className="border border-gray-400 rounded-xl p-3 focus:border-accent focus-visible:border-accent focus:outline-0 focus-visible:outline-0" placeholder="Type here." required  onChange={handleChange} value={values.image}/>
         </div>
-        <button type="submit" className="bg-green-500 px-2 py-1 rounded-md cursor-pointer text-white">{isSubmitting ? "Post..." : "Post"}</button>
+        <button type="submit" className="bg-accent py-3 rounded-[50px] w-[70%] text-white mt-3">{isSubmitting ? "Post..." : "Post"}</button>
       </form>
     </>
   )
