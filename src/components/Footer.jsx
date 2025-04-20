@@ -10,7 +10,7 @@ const Footer = () => {
             <img src={footerLogo} alt="logo" className="w-32" />
             <div className="w-1 h-4 bg-accent rounded-3xl"></div>
             <p className="text-white font-extralight text-sm">
-              Copyright {new Date().getFullYear()} PlanetMedia
+              Copyright {new Date().getFullYear()}
             </p>
           </div>
           <div className="flex gap-5 text-white/20">

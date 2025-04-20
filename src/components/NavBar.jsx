@@ -1,9 +1,17 @@
 import { useNavigate } from "react-router"
 import navLogo from "../assets/logoForWhite.png"
+import { useEffect, useState } from "react"
 
 
 const NavBar = () => {
+    const [userName, setUserName] = useState(null)
     const navigate = useNavigate()
+
+    useEffect(()=>{
+        if(localStorage.getItem("token")&&localStorage.getItem("user")){
+            setUserName(JSON.parse(localStorage.getItem("user")).username)
+        }
+    },[])
 
   return (
     <>
@@ -12,7 +20,7 @@ const NavBar = () => {
                 <img src={navLogo} alt="logo" className="w-32"/>
                 <div className="flex gap-3">
                     <button className="border border-gray-200 rounded-[50px] px-6 py-2 cursor-pointer" onClick={()=>navigate("/login")}>
-                        Sign In
+                        {userName ? `${userName}` : "Login"}
                     </button>
                     <button className="border border-accent bg-accent text-white rounded-[50px] px-6 py-2 cursor-pointer" onClick={()=>navigate("/dashboard/post-ad")}>
                         Post you Ad

@@ -26,14 +26,14 @@ const Dashboard = () => {
   return (
     <>
       <main className="container mx-auto flex gap-4 p-4">
-        <section className="w-64 flex flex-col gap-2">
+        <section className="w-72 flex flex-col gap-4 bg-white rounded-lg p-4 pt-10">
           <NavLink
             to="/dashboard/my-account"
             className={({ isActive }) =>
-              `px-4 py-2 rounded-md ${
+              `px-5 py-3 rounded-[50px] ${
                 isActive
-                  ? "bg-blue-600 text-white"
-                  : "bg-blue-500 text-white hover:bg-blue-600"
+                  ? "bg-primary text-white"
+                  : "bg-transparent text-gray-700 border border-transparent hover:border-gray-400 "
               }`
             }
           >
@@ -42,10 +42,10 @@ const Dashboard = () => {
           <NavLink
             to="/dashboard/profile"
             className={({ isActive }) =>
-              `px-4 py-2 rounded-md ${
+              `px-5 py-3 rounded-[50px] ${
                 isActive
-                  ? "bg-blue-600 text-white"
-                  : "bg-blue-500 text-white hover:bg-blue-600"
+                  ? "bg-primary text-white"
+                  : "bg-transparent text-gray-700 border border-transparent hover:border-gray-400 "
               }`
             }
           >
@@ -54,10 +54,10 @@ const Dashboard = () => {
           <NavLink
             to="/dashboard/ads"
             className={({ isActive }) =>
-              `px-4 py-2 rounded-md ${
+              `px-5 py-3 rounded-[50px] ${
                 isActive
-                  ? "bg-blue-600 text-white"
-                  : "bg-blue-500 text-white hover:bg-blue-600"
+                  ? "bg-primary text-white"
+                  : "bg-transparent text-gray-700 border border-transparent hover:border-gray-400 "
               }`
             }
           >
@@ -66,18 +66,18 @@ const Dashboard = () => {
           <NavLink
             to="/dashboard/post-ad"
             className={({ isActive }) =>
-              `px-4 py-2 rounded-md ${
+              `px-5 py-3 rounded-[50px] ${
                 isActive
-                  ? "bg-blue-600 text-white"
-                  : "bg-blue-500 text-white hover:bg-blue-600"
+                  ? "bg-accent text-white"
+                  : "bg-transparent text-accent border border-transparent hover:border-accent "
               }`
             }
           >
             Post Ad
           </NavLink>
-          <button className="text-red-500 hover:text-white hover:bg-red-500 px-3 py-1 border-red-500 border transition-all duration-200 ease-in-out" onClick={logOut}>Log out</button>
+          <button className="text-red-500 hover:text-white hover:bg-red-500 px-4 py-3 border-red-500 border transition-all duration-200 ease-in-out rounded-[50px]" onClick={logOut}>Log out</button>
         </section>
-        <section className="w-full h-[95vh] overflow-y-auto">
+        <section className="w-full min-h-[83vh] overflow-y-auto">
           <Outlet />
         </section>
       </main>
